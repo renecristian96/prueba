@@ -116,6 +116,7 @@
 							<h1>Joefrey &amp; Sheila</h1>
 							<h2>We Are Getting Married</h2>
 							<div class="simply-countdown simply-countdown-one"></div>
+							<!-- <div class="simply-countdown"></div> -->
 							<p><a href="#" class="btn btn-default btn-sm">Save the date</a></p>
 						</div>
 					</div>
@@ -609,19 +610,19 @@
 	<script src="js/main.js"></script>
 
 	<script>
-    var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
+        var d = new Date(new Date(2021,11,06).getTime());
 
     // default example
     simplyCountdown('.simply-countdown-one', {
         year: d.getFullYear(),
-        month: d.getMonth() + 1,
+        month: d.getMonth() ,
         day: d.getDate()
     });
 
     //jQuery example
     $('#simply-countdown-losange').simplyCountdown({
         year: d.getFullYear(),
-        month: d.getMonth() + 1,
+        month: d.getMonth(),
         day: d.getDate(),
         enableUtc: false
     });
