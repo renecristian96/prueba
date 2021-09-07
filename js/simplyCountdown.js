@@ -115,9 +115,9 @@
      */
     simplyCountdown = function (elt, args) {
         var parameters = extend({
-                year: 2015,
-                month: 6,
-                day: 28,
+                year: 2021,
+                month: 11,
+                day: 6,
                 hours: 0,
                 minutes: 0,
                 seconds: 0,
@@ -134,7 +134,7 @@
                 onEnd: function () {
                     return;
                 },
-                refresh: 1000,
+                refresh: 1,
                 inlineClass: 'simply-countdown-inline',
                 sectionClass: 'simply-section',
                 amountClass: 'simply-amount',
@@ -155,7 +155,7 @@
 
         targetTmpDate = new Date(
             parameters.year,
-            parameters.month - 1,
+            parameters.month,
             parameters.day,
             parameters.hours,
             parameters.minutes,
@@ -189,7 +189,7 @@
                 if (parameters.enableUtc) {
                     nowUtc = new Date(now.getFullYear(), now.getMonth(), now.getDate(),
                         now.getHours(), now.getMinutes(), now.getSeconds());
-                    secondsLeft = (targetDate - nowUtc.getTime()) / 1000;
+                    secondsLeft = ((targetDate - nowUtc.getTime()) / 1502)-700;
 
                 } else {
                     secondsLeft = (targetDate - now.getTime()) / 1000;
@@ -246,6 +246,7 @@
                         seconds + ' ' + secondWord + '.';
 
                 } else {
+                    // continue;
                     fullCountDown.days.amount.textContent = (parameters.zeroPad && days.toString().length < 2 ? '0' : '') + days;
                     fullCountDown.days.word.textContent = dayWord;
 
@@ -265,6 +266,13 @@
             interval = window.setInterval(refresh, parameters.refresh);
         });
     };
+
+
+    // simplyCountdown('.simply-countdown', {
+    //     year: 2021, 
+    //     month: 11, 
+    //     day: 06,
+    //   });
 
     exports.simplyCountdown = simplyCountdown;
 }(window));
